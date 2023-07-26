@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.12.1 -->
+<interface>
+  <!-- interface-name main.ui -->
+  <requires lib="gtk" version="4.10"/>
+  <requires lib="libadwaita" version="1.3"/>
+  <object class="AdwApplicationWindow" id="window">
+    <property name="default-height">500</property>
+    <property name="default-width">700</property>
+    <property name="show-menubar">True</property>
+    <property name="title">Simple App</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" id="title">
+            <child>
+              <object class="GtkButton" id="reset">
+                <property name="css-classes">suggested-action</property>
+                <property name="label">Reset</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkButton" id="minus">
+                <property name="halign">center</property>
+                <property name="icon-name">value-decrease-symbolic</property>
+                <property name="margin-end">50</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="number">
+                <property name="label">0</property>
+                <property name="tooltip-markup">The number you control</property>
+                <property name="valign">center</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="plus">
+                <property name="icon-name">value-increase-symbolic</property>
+                <property name="margin-start">50</property>
+                <property name="vexpand">True</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

@@ -1,0 +1,67 @@
+{
+    "id" : "app.neutrino2211.SimpleTodo.Dev",
+    "runtime" : "org.freedesktop.Platform",
+    "runtime-version" : "22.08",
+    "sdk" : "org.gnome.Sdk",
+    "sdk-extensions" : [
+        "org.freedesktop.Sdk.Extension.llvm15"
+    ],
+    "command" : "zig-adw",
+    "finish-args" : [
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--share=ipc",
+        "--device=dri"
+    ],
+    "build-options" : {
+        "append-path" : "/usr/lib/sdk/llvm15/bin:/app/bin:/app/zig",
+        "build-args" : [
+            "--share=network"
+        ],
+        "env" : {        }
+    },
+    "cleanup" : [
+        "/include",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/app/zig",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "zig",
+            "buildsystem" : "simple",
+            "only-arches" : [
+                "x86_64"
+            ],
+            "build-commands" : [
+                "mkdir -p /app/zig",
+                "cp -r * /app/zig/"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://ziglang.org/builds/zig-linux-x86_64-0.11.0-dev.3723+423d7b848.tar.xz",
+                    "sha256" : "69428c03e76b7911ab55d8ada9a1a91bf55b2a37f437eda641e323218d34da17"
+                }
+            ]
+        },
+        {
+            "name" : "zig-adw",
+            "buildsystem" : "simple",
+            "only-arches" : [
+                "x86_64"
+            ],
+            "build-commands" : [
+                "zig build",
+                "install -D zig-out/bin/zig-adw /app/bin/zig-adw"
+            ],
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "../"
+                }
+            ]
+        }
+    ]
+}

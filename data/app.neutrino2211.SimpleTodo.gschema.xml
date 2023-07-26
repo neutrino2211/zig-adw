@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/app/data/" id="app.neutrino2211.SimpleTodo">
+    <key name="window-width" type="i">
+      <default>900</default>
+      <summary>Default window width</summary>
+      <description>Default window width</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>600</default>
+      <summary>Default window height</summary>
+      <description>Default window height</description>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Default window maximized behaviour</summary>
+      <description>Default window maximized behaviour</description>
+    </key>
+    <key name="recently-used-sessions" type="as">
+      <default>[]</default>
+      <summary>Recently used sessions</summary>
+      <description>A list of most recently used sessions, sorted by their database directory names</description>
+    </key>
+    <key name="color-scheme" type="s">
+      <choices>
+        <choice value="default"/>
+        <choice value="light"/>
+        <choice value="dark"/>
+      </choices>
+      <default>'default'</default>
+      <summary>Color Scheme</summary>
+      <description>The color scheme to be used in the app</description>
+    </key>
+    <key name="first-run" type="b">
+      <default>true</default>
+      <summary>App first run</summary>
+      <description>Is this the first time the app is being run</description>
+    </key>
+  </schema>
+</schemalist>
